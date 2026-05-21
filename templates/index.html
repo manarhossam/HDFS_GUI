@@ -82,38 +82,28 @@
             position: relative;
             overflow: hidden;
         }
- 
+
         button:active { transform: scale(0.96); }
- 
-        /* Default blue buttons */
         .btn-blue {
             background: #1f6feb;
             color: #fff;
         }
         .btn-blue:hover { background: #388bfd; }
- 
-        /* Green buttons for read ops */
         .btn-green {
             background: #1a7f37;
             color: #fff;
         }
         .btn-green:hover { background: #2ea043; }
- 
-        /* Red for destructive */
         .btn-red {
             background: #b62324;
             color: #fff;
         }
         .btn-red:hover { background: #da3633; }
- 
-        /* Purple for utility */
         .btn-purple {
             background: #6e40c9;
             color: #fff;
         }
         .btn-purple:hover { background: #8957e5; }
- 
-        /* Teal for cat */
         .btn-teal {
             background: #0e7490;
             color: #fff;
@@ -166,8 +156,8 @@
 <div class="card">
     <form action="/run" method="POST">
         <div class="inputs-row">
-            <input type="text" name="path1" placeholder="Path 1  (e.g. /user/hadoop/data)">
-            <input type="text" name="path2" placeholder="Path 2  (destination / local path)">
+            <input type="text" name="path1" placeholder="Path 1 (/user/hadoop/data)">
+            <input type="text" name="path2" placeholder="Path 2 (destination/local path)">
         </div>
  
         <p class="section-label">File Operations</p>
@@ -177,10 +167,10 @@
             <button class="btn-red"    name="command" value="rm"> RM</button>
             <button class="btn-blue"   name="command" value="put"> PUT</button>
             <button class="btn-blue"   name="command" value="get"> GET</button>
-            <button class="btn-blue"   name="command" value="cp">⧉ CP</button>
+            <button class="btn-blue"   name="command" value="cp"> CP</button>
             <button class="btn-blue"   name="command" value="mv"> MV</button>
-            <button class="btn-teal"   name="command" value="cat">≡ CAT</button>
-            <button class="btn-purple" name="command" value="jps">◎ JPS</button>
+            <button class="btn-teal"   name="command" value="cat"> CAT</button>
+            <button class="btn-purple" name="command" value="jps"> JPS</button>
         </div>
     </form>
 </div>
