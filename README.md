@@ -6,7 +6,6 @@ A simple web-based GUI application built with Python (Flask) and HTML/CSS/JavaSc
 - Upload & download files (put/get)  
 - Create & delete directories  
 - Copy / move files inside HDFS  
-- Start/stop Hadoop services  
 - Check cluster status (JPS)  
 
 ## Tech Stack
