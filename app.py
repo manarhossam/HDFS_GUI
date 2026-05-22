@@ -17,33 +17,50 @@ def run():
 
     if command_type == "ls":
         cmd = f"hdfs dfs -ls {path1}"
+
     elif command_type == "mkdir":
         cmd = f"hdfs dfs -mkdir {path1}"
+
     elif command_type == "rm":
         cmd = f"hdfs dfs -rm {path1}"
+
     elif command_type == "put":
         cmd = f"hdfs dfs -put {path1} {path2}"
+
     elif command_type == "get":
         cmd = f"hdfs dfs -get {path1} {path2}"
+
     elif command_type == "cp":
         cmd = f"hdfs dfs -cp {path1} {path2}"
+
     elif command_type == "mv":
         cmd = f"hdfs dfs -mv {path1} {path2}"
+
     elif command_type == "cat":
         cmd = f"hdfs dfs -cat {path1}"
+
     elif command_type == "jps":
         cmd = "jps"
 
     if not cmd:
         output = "Unknown command."
+
     else:
-        result = subprocess.run(
-            cmd,
-            shell=True,
-            capture_output=True,
-            text=True
-        )
-        output = result.stdout + result.stderr
+        try:
+            full_cmd = f"source ~/.bashrc && {cmd}"
+
+            result = subprocess.run(
+                full_cmd,
+                shell=True,
+                executable="/bin/bash",
+                capture_output=True,
+                text=True
+            )
+
+            output = result.stdout + result.stderr
+
+        except Exception as e:
+            output = str(e)
 
     return render_template("index.html", output=output)
 
