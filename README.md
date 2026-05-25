@@ -14,8 +14,9 @@ A simple web-based GUI application built with Python (Flask) and HTML/CSS/JavaSc
 - Hadoop HDFS  
 
 ## ScreenShots
-<img width="719" height="348" alt="1 GUI" src="https://github.com/user-attachments/assets/0ea8a14c-8169-4961-a39c-3dfd89b11afd" />
-<img width="710" height="349" alt="cat" src="https://github.com/user-attachments/assets/344d19b6-b589-4c0c-a795-eb43bf1f9877" />
-<img width="705" height="347" alt="JPS" src="https://github.com/user-attachments/assets/2be23a5c-8145-4c7e-a0f1-f80536e35907" />
+<img width="953" height="349" alt="cat" src="https://github.com/user-attachments/assets/4c4fef1e-b49b-4492-b34d-151357c0d4ec" />
+<img width="960" height="371" alt="jPS" src="https://github.com/user-attachments/assets/ea04d505-5281-4e5c-be87-f4b0e1bc6b9f" />
+<img width="952" height="364" alt="GUI1" src="https://github.com/user-attachments/assets/240393ab-0746-4a75-a35e-1dc9b5166a26" />
+
 
 
