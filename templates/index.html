@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HDFS GUI</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: #0d1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+            padding: 40px 30px;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #58a6ff;
+            letter-spacing: -1px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #484f58;
+            font-size: 0.78rem;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .inputs-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            min-width: 220px;
+            padding: 12px 16px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            color: #c9d1d9;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]::placeholder { color: #484f58; }
+        input[type="text"]:focus { border-color: #58a6ff; }
+
+        .btn-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.15s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:active { transform: scale(0.96); }
+
+        .btn-blue   { background: #1f6feb; color: #fff; }
+        .btn-blue:hover   { background: #388bfd; }
+
+        .btn-green  { background: #1a7f37; color: #fff; }
+        .btn-green:hover  { background: #2ea043; }
+
+        .btn-red    { background: #b62324; color: #fff; }
+        .btn-red:hover    { background: #da3633; }
+
+        .btn-purple { background: #6e40c9; color: #fff; }
+        .btn-purple:hover { background: #8957e5; }
+
+        .btn-teal   { background: #0e7490; color: #fff; }
+        .btn-teal:hover   { background: #0891b2; }
+
+        .output-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #484f58;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 280px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            color: #3fb950;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            padding: 16px;
+            resize: vertical;
+            outline: none;
+            line-height: 1.6;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #484f58;
+            margin-bottom: 12px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #30363d;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>⬡ HDFS GUI</h1>
+<p class="subtitle">Hadoop Distributed File System — Command Interface</p>
+
+<div class="card">
+    <form action="/run" method="POST">
+        <div class="inputs-row">
+            <input type="text" name="path1" placeholder="Path 1 (/user/hadoop/data)">
+            <input type="text" name="path2" placeholder="Path 2 (destination/local path)">
+        </div>
+
+        <!-- Cluster Control -->
+        <p class="section-label">Cluster Control</p>
+        <div class="btn-grid">
+            <button class="btn-green"  name="command" value="start_dfs">▶ START DFS</button>
+            <button class="btn-green"  name="command" value="start_yarn">▶ START YARN</button>
+            <button class="btn-red"    name="command" value="stop_dfs">■ STOP DFS</button>
+            <button class="btn-red"    name="command" value="stop_yarn">■ STOP YARN</button>
+            <button class="btn-purple" name="command" value="jps"> JPS</button>
+        </div>
+
+        <hr class="divider">
+
+        <!-- File Operations -->
+        <p class="section-label">File Operations</p>
+        <div class="btn-grid">
+            <button class="btn-green"  name="command" value="ls"> LS</button>
+            <button class="btn-blue"   name="command" value="mkdir"> MKDIR</button>
+            <button class="btn-red"    name="command" value="rm"> RM</button>
+            <button class="btn-blue"   name="command" value="put"> PUT</button>
+            <button class="btn-blue"   name="command" value="get"> GET</button>
+            <button class="btn-blue"   name="command" value="cp"> CP</button>
+            <button class="btn-blue"   name="command" value="mv"> MV</button>
+            <button class="btn-teal"   name="command" value="cat">CAT</button>
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <p class="output-label">Output</p>
+    <textarea readonly>{{ output }}</textarea>
+</div>
+
+</body>
+</html>
